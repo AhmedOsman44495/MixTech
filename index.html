@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mix Technology - هندسة الانشاءات الكهربائية والمدنية والمبيعات">
+    <title>Mix Technology</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="mix-logo.png" alt="Mix Technology Logo" style="height: 100px;">
+            </div>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Our services</a></li>
+                <li><a href="#products">The Products</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <section id="home" class="section">
+        <h1>Mix Technology</h1>
+        <p>muliple services Ecommerce, engineering and Construction.</p>
+    </section>
+
+    <section id="products" class="section">
+        <h2>Our Products</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="product1.jpg" alt="منتج 1" style="width:100%; border-radius: 10px; margin-bottom: 1rem;">
+                <h3>Engineering</h3>
+                <p>Construction & Technology </p>
+                <!-- توجيه المستخدم إلى صفحة أصناف منتج 1 -->
+                <a href="product1.html">
+                    <button>Show items</button>
+                </a>
+            </div>
+            <div class="product">
+                <img src="product2.jpg" alt="منتج 2" style="width:100%; border-radius: 10px; margin-bottom: 1rem;">
+                <h3>Online Shoping</h3>
+                <p>Electronics, Phones, Accessories and many more</p>
+                <a href="products.html">
+                    <button>Show items</button>
+                </a>
+            </div>
+            <div class="product">
+                <img src="job.jpg" alt="منتج 3" style="width:100%; border-radius: 10px; margin-bottom: 1rem;">
+                <h3>Job vacancies</h3>
+                <p>Browse job opportunities on SITARA with full details, just prepare your CV and let's go!</p>
+                <a href="https://whatsapp.com/channel/0029VakgJGeD38CKNo9IhR0Z">
+                    <button>SITARA</button>
+                </a>
+            </div>
+            <!-- أضف المزيد من المنتجات هنا -->
+            <div class="product">
+                <img src="online_courses.png" alt="منتج 3" style="width:100%; border-radius: 10px; margin-bottom: 1rem;">
+                <h3>Online courses</h3>
+                <p>Coming Soon</p>
+                </a>
+            </div>
+    </section>
+    <section class="section">
+        <h2>More Details</h2>
+        <button onclick="toggleInfo()">Show more details</button>
+        <div id="extra-info" style="display:none; margin-top: 10px;">
+            <p>تفاصيل إضافية حول المنتج ومعلومات أخرى.</p>
+        </div>
+    </section>
+    
+
+    <script>
+        
+        function confirmPurchase(itemName) {
+            let confirmation = confirm("هل أنت متأكد أنك تريد شراء " + itemName + "?");
+            if (confirmation) {
+                window.location.href = "https://wa.me/249123206351?text=أريد شراء " + itemName;
+            }
+        }
+        
+    </script>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <script>
+        function toggleInfo() {
+            let info = document.getElementById("extra-info");
+            if (info.style.display === "none") {
+                info.style.display = "block";
+            } else {
+                info.style.display = "none";
+            }
+        }
+    </script>
+    <script>
+        function validateForm() {
+            let email = document.forms["contactForm"]["email"].value;
+            if (email == "") {
+                alert("يرجى إدخال البريد الإلكتروني.");
+                return false;
+            }
+        }
+    </script>
+    
+    <script>
+        const products = [
+            { name: "صنف 1", description: "وصف صنف 1", image: "category1-product1.jpg" },
+            { name: "صنف 2", description: "وصف صنف 2", image: "category2-product1.jpg" }
+        ];
+    
+        const productList = document.getElementById("product-list");
+    
+        products.forEach(product => {
+            let productDiv = document.createElement("div");
+            productDiv.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" style="width:100%; border-radius: 10px; margin-bottom: 1rem;">
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <button onclick="confirmPurchase('${product.name}')">شراء الآن</button>
+            `;
+            productList.appendChild(productDiv);
+        });
+    </script>
+    <section id="about" class="section">
+        <h2>About Us:</h2>
+        <p>Mix Technology is a leading company in the field of muliple activities that serves technology and engineering.</p>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact us: </h2>
+        <form>
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+            <label for="message">The Message: </label>
+            <textarea id="message" name="message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+  
+    <footer>
+        <a>
+            Follow us:
+        </a>
+        <div class="contact-info">
+            
+            <a href="mailto:mixtechnology1@gmail.com" target="_blank">
+                <img src="email-logo.png" alt="Email Logo" style="width: 24px; vertical-align: middle; margin-right: 8px;">
+                Gmail
+            </a>
+            <br>
+            <a href="https://www.facebook.com/mixtechnology1999?mibextid=ZbWKwL" target="_blank">
+                <img src="facebook-logo.png" alt="Facebook Logo" style="width: 24px; vertical-align: middle; margin-right: 8px;">
+             Facebook
+            </a>
+            <br>
+            <a href="https://www.linkedin.com/company/100596732/admin/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BlHf%2B5gzMQ7e98xKa9dukNQ%3D%3D" target="_blank">
+                <img src="linkedin-logo.png" alt="LinkedIn Logo" style="width: 24px; vertical-align: middle; margin-right: 8px;">
+             LinkedIn  
+            </a>
+        </div>
+        <p>&copy; 2024 Mix Technology. جميع الحقوق محفوظة.</p>
+    </footer>
+   
+</body> 
+    
